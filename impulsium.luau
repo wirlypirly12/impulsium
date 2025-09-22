@@ -260,7 +260,7 @@ end
 
 function ui:create_tab(name, params)
 	local tab = {
-		flag = params and params.flag or "stupid flag",
+		flag = params and params.flag or name and name or "idk",
 		name = name or "player",
 		position = UDim2.new(0,0,#ui.tabs > 0 and (0.095*#ui.tabs) or 0, 0),
 		componets = {},
@@ -379,7 +379,7 @@ function ui:create_tab(name, params)
 		local slider = {
 			name = name or "ragebot fov",
 			callback = params and params.callback or print;
-			flag = params and params.flag or "flag123",
+			flag = params and params.flag or name and name or "idk",
 			min = params and params.min or 0,
 			max = params and params.max or 26,
 			float = params and params.float or 1,
@@ -500,7 +500,7 @@ function ui:create_tab(name, params)
 		local objecthandler = dev and dev.objectsholder or nil
 		local keypicker = {
 			name = name or "KeyPicker",
-			flag = params and params.flag or "keypicker key",
+			flag = params and params.flag or name and name or "idk",
 			callback = params and params.callback or print,
 			default = params and params.default or "F",
 			position = UDim2.new(0,0,#tab.ignoredcomponets > 0 and (0.095*#tab.ignoredcomponets)+tab.damp or 0, 0),
@@ -621,7 +621,7 @@ function ui:create_tab(name, params)
 		local objecthandler = dev and dev.objectsholder or nil
 		local toggle = {
 			name = name or "desync",
-			flag = params and params.flag or "stupid desync flag",
+			flag = params and params.flag or name and name or "idk",
 			callback = params and params.callback or print,
 			default = params and params.default ~= nil and params.default or false,
 			position = UDim2.new(0,0,#tab.ignoredcomponets > 0 and (0.095*#tab.ignoredcomponets)+tab.damp or 0, 0),
@@ -851,7 +851,7 @@ function ui:create_tab(name, params)
 	local index = 0
 	function tab:add_folder(name, params, dev)
 		local folder = {
-			flag = params and params.flag or "flag",
+			flag = params and params.flag or name and name or "idk",
 			name = name or "fartbutt "..tostring(index),
 			type = "folder",
 			position = UDim2.new(0,0,#tab.ignoredcomponets > 0 and (0.095*#tab.ignoredcomponets)+tab.damp or 0, 0),
@@ -1228,7 +1228,7 @@ local uis = game:GetService("UserInputService").InputBegan:Connect(function(inpu
 			ui.activetab = nil
 			move_selected(nil, index)
 			ui.index = index
-			title.Text = "Melancholy"
+			title.Text = ""
 		else
 			tab.objectsholder.Visible = true
 			move_selected(tab, index)
@@ -1255,3 +1255,24 @@ local uis = game:GetService("UserInputService").InputBegan:Connect(function(inpu
 end)
 
 return ui;
+
+--local player = ui:create_tab("Player")
+--local player1 = ui:create_tab("Network")
+--local player2 = ui:create_tab("Visuals")
+--local combat = ui:create_tab("Combat")
+--local trolling = ui:create_tab("Trolling")
+
+--player:add_switch("invisible"):selecter({options = {"Show Self", "Hide Self"}})
+--player:add_switch("super speed")
+--player:add_switch("never die")
+--player:add_section("gun mods")
+--player:add_switch("no recoil")
+--player:add_switch("explosive rounds")
+--player:add_keypicker()
+--player:add_switch("no reload")
+--player:add_section("extra")
+--local a = player:add_folder(); a:add_slider(); a:add_switch()
+--a:add_keypicker()
+--a:add_section()
+--a:add_keypicker()
+--a:add_section(text("[ ", "pink").. text("Gun Mods", "white") .. text(" ]", "pink"))
